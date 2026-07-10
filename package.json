@@ -1,0 +1,28 @@
+{
+  "name": "tree-sitter-openacc",
+  "version": "0.1.0",
+  "description": "OpenACC grammar for tree-sitter",
+  "repository": "https://github.com/loicreynier/tree-sitter-openacc",
+  "license": "MIT",
+  "author": {
+    "name": "Loïc Reynier",
+    "email": "contact@loicreynier.fr"
+  },
+  "keywords": [
+    "openacc",
+    "tree-sitter"
+  ],
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "queries/*",
+    "src/**"
+  ],
+  "devDependencies": {
+    "eslint": "^9.17.0",
+    "eslint-config-treesitter": "^1.0.2"
+  },
+  "scripts": {
+    "lint": "eslint grammar.js"
+  }
+}

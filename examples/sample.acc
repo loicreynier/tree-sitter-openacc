@@ -1,0 +1,2 @@
+! vim: ft=openacc
+parallel loop copy(a, b) private(tmp) reduction(+:sum)

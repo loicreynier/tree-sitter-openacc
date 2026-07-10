@@ -1,0 +1,14 @@
+[tools]
+"cargo:tree-sitter-cli" = "0.26.5"
+node = "latest"
+
+[tasks.lint]
+quiet = true
+run = "npm run lint"
+
+[tasks.build]
+quiet = true
+run = '''
+tree-sitter generate
+tree-sitter build
+'''
