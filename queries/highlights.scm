@@ -51,13 +51,13 @@
   "device_type"
   "dtype"
   "use_device"
-  "if_present"
 ] @keyword.directive
 
 ;  Clause without arguments
 (seq_clause) @keyword.directive
 (independent_clause) @keyword.directive
 (auto_clause) @keyword.directive
+(if_present_clause) @keyword.directive
 
 ; -- Clause arguments
 
