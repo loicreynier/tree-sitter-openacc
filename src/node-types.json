@@ -142,6 +142,10 @@
           "named": true
         },
         {
+          "type": "use_device_clause",
+          "named": true
+        },
+        {
           "type": "vector_clause",
           "named": true
         },
@@ -419,6 +423,44 @@
     }
   },
   {
+    "type": "host_data_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "if_clause",
+          "named": true
+        },
+        {
+          "type": "if_present_clause",
+          "named": true
+        },
+        {
+          "type": "use_device_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "host_data_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "host_data_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_clause",
     "named": true,
     "fields": {},
@@ -686,6 +728,10 @@
           "named": true
         },
         {
+          "type": "host_data_directive",
+          "named": true
+        },
+        {
           "type": "kernels_directive",
           "named": true
         },
@@ -745,6 +791,21 @@
       "types": [
         {
           "type": "clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "use_device_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -1018,12 +1079,20 @@
     "named": false
   },
   {
+    "type": "host_data",
+    "named": false
+  },
+  {
     "type": "identifier",
     "named": true
   },
   {
     "type": "if",
     "named": false
+  },
+  {
+    "type": "if_present_clause",
+    "named": true
   },
   {
     "type": "independent_clause",
@@ -1103,6 +1172,10 @@
   },
   {
     "type": "update",
+    "named": false
+  },
+  {
+    "type": "use_device",
     "named": false
   },
   {

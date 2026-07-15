@@ -7,6 +7,7 @@
   "data"
   "enter"
   "exit"
+  "host_data"
   "update"
   "wait"
   "routine"
@@ -49,6 +50,8 @@
   "device"
   "device_type"
   "dtype"
+  "use_device"
+  "if_present"
 ] @keyword.directive
 
 ;  Clause without arguments

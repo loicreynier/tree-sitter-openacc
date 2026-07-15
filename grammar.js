@@ -33,6 +33,7 @@ module.exports = grammar({
       $.data_directive,
       $.enter_data_directive,
       $.exit_data_directive,
+      $.host_data_directive,
       $.update_directive,
       $.wait_directive,
       $.routine_directive,
@@ -60,6 +61,8 @@ module.exports = grammar({
 
     exit_data_directive: $ => seq('exit', 'data', repeat($.clause)),
 
+    host_data_directive: $ => seq('host_data', repeat($.host_data_clause)),
+
     update_directive: $ => seq('update', repeat($.clause)),
 
     wait_directive: $ => seq('wait', optional($.wait_argument), repeat($.clause)),
@@ -80,6 +83,7 @@ module.exports = grammar({
         'parallel',
         'kernels',
         'data',
+        'host_data',
         seq('parallel', 'loop'),
         seq('kernels', 'loop'),
       ),
@@ -112,6 +116,7 @@ module.exports = grammar({
       $.host_clause,
       $.device_clause,
       $.device_type_clause,
+      $.use_device_clause,
     )),
 
     if_clause: $ => seq('if', '(', $.expression, ')'),
@@ -179,6 +184,18 @@ module.exports = grammar({
       choice('device_type', 'dtype'),
       '(', commaSep1(choice($.identifier, '*')), ')',
     ),
+
+    host_data_clause: $ => choice(
+      $.use_device_clause,
+      $.if_clause,
+      $.if_present_clause,
+    ),
+
+    use_device_clause: $ => seq(
+      'use_device', '(', commaSep1($.identifier), ')',
+    ),
+
+    if_present_clause: _ => 'if_present',
 
     // -- Variables: copy(a(1:n))
     // TODO: support for C syntax: copy(a[0:n]) ?

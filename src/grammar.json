@@ -52,6 +52,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "host_data_directive"
+        },
+        {
+          "type": "SYMBOL",
           "name": "update_directive"
         },
         {
@@ -220,6 +224,22 @@
           "content": {
             "type": "SYMBOL",
             "name": "clause"
+          }
+        }
+      ]
+    },
+    "host_data_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "host_data"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "host_data_clause"
           }
         }
       ]
@@ -466,6 +486,10 @@
               "value": "data"
             },
             {
+              "type": "STRING",
+              "value": "host_data"
+            },
+            {
               "type": "SEQ",
               "members": [
                 {
@@ -596,6 +620,10 @@
           {
             "type": "SYMBOL",
             "name": "device_type_clause"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "use_device_clause"
           }
         ]
       }
@@ -1494,6 +1522,69 @@
           "value": ")"
         }
       ]
+    },
+    "host_data_clause": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "use_device_clause"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "if_clause"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "if_present_clause"
+        }
+      ]
+    },
+    "use_device_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "use_device"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "if_present_clause": {
+      "type": "STRING",
+      "value": "if_present"
     },
     "var_ref": {
       "type": "SEQ",
