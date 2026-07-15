@@ -1,6 +1,7 @@
 /examples/* linguist-vendored
 
 # Generated source files
-src/*.json linguist-generated
-src/parser.c linguist-generated
-src/tree_sitter/* linguist-generated
+src/*.json -diff linguist-generated
+src/parser.c -diff linguist-generated
+src/tree_sitter/* -diff linguist-generated
+
