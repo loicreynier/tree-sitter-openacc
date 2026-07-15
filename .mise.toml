@@ -12,3 +12,11 @@ run = '''
 tree-sitter generate
 tree-sitter build
 '''
+
+[tasks.test]
+quiet = true
+run = '''
+tree-sitter generate
+tree-sitter parse ./examples/sample.acc
+tree-sitter query ./queries/injections.scm ./examples/sample.f90
+'''
