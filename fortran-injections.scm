@@ -1,6 +1,4 @@
-; -- General injection
-((comment) @injection.content
-  (#set! injection.language "comment"))
+; extends
 
 ; -- OpenACC injection
 ;
