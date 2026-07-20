@@ -22,4 +22,26 @@ cp ./queries/highlights.scm ~/.config/nvim/queries/after/openacc
 cp ./fortran-injections.scm ~/.config/nvim/queries/after/fortran
 ```
 
+### [`nvim-treesitter`][nvim-treesitter]
+
+```lua
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TSUpdate",
+  callback = function()
+    ---@diagnostic disable-next-line: missing-fields
+    require("nvim-treesitter.parsers").openacc = {
+      install_info = {
+        url = "https://github.com/loicreynier/tree-sitter-openacc",
+        revision = "b17931de5e809e7b1fd094876fd96a73d0d045b6",
+        queries = "queries",
+      },
+    }
+  end,
+})
+```
+
+```bash
+curl -L -o ~/.config/nvim/after/queries/fortran/injections.scm https://raw.githubusercontent.com/loicreynier/tree-sitter-openacc/refs/heads/main/fortran-injections.scm
+```
+
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
